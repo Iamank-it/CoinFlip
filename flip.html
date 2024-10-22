@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoinFlip</title>
+</head>
+<style>
+  *{
+    background-color: blueviolet;
+  }
+  main{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+  }
+  img{
+    width: 300px;
+    transition: transform 0.5s;
+  }
+  .flip {
+    transform: rotateY(360deg);
+  }
+  button{
+    width: 100px;
+    margin-top: 40px;
+    background-color: orange;
+    border: none;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 5px;
+    color: white;
+    box-shadow: 0px 0px 5px red;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  input{
+    width: 100px;
+    margin-top: 40px;
+    text-align: center;
+    padding: 5px;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color: white;
+  }
+</style>
+<body>
+  <main>
+  <img src="images/1-removebg-preview.png" id="image" alt="" class="coin">
+  <button onclick="
+    x=Math.random();
+    if(x<0.5){
+      document.getElementById('text').value='Head!';
+      document.getElementById('image').src='images/1-removebg-preview.png';
+    }
+    else{
+      document.getElementById('text').value='Tail!';
+      document.getElementById('image').src='images/2-removebg-preview.png';
+    }
+    flipCoin();
+  ">Flip</button>
+  <input type="text" value="Head!" id="text" readonly>
+  </main>
+  <script>
+    let x=0;
+    function flipCoin() {
+      document.getElementById('image').classList.add('flip');
+      setTimeout(() => {
+        document.getElementById('image').classList.remove('flip');
+      }, 500);
+    }
+  </script>
+</body>
+</html>
